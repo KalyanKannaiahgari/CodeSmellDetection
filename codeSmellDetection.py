@@ -99,7 +99,7 @@ def checkFunctionHavingMultipleReturn(code, i):
     if (len(returnCounts) > 1):
         describeCodeSmell('Multiple return statements found at lines ' + str(returnCounts) + ' of function', i - 1, j - 1, 'MultipleReturnStatementsInFunction')
 
-#This function will check for Long blocks of code
+# This function will check for the long data types used
 def checkLongStatements(code, i):
     if (len(code[i].lstrip().split()) > 20):
         describeCodeSmell('Long statement found', i, i, 'LongStatements')
@@ -119,6 +119,7 @@ def checkSameFunctionNames(functionNames, numberOfLines):
     if (i + 1 < j):
         print(i, j)
 
+#This function will check for Long blocks of code
 def checkLongBlocks(code, i, blockType):
     numberOfLines = len(code)
     leadingSpaces = getLeadingSpaces(code[i])
