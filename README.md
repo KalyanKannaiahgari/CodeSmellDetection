@@ -1,9 +1,9 @@
 # Code Smell Detection
 
 ## Instructions to run the project
-- This project is written in **Python** programming language
+- This project is written in **Python** programming language.
 - This project should be executed on **PyCharm** IDE **ONLY**.
-- It includes a csv file named "codeSmellData.csv". This file is imported from Kaggle
+- It includes a csv file named "codeSmellData.csv". This file is imported from Kaggle.
 
 ## Code Parameters
 1.	Repetitive Code Lines
