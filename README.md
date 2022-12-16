@@ -15,4 +15,11 @@
 8.	Long Conditional blocks
 9.	Long Parameter/Variable list
 
+- All these above parameters are considered to determine the efficiency of the code and to detect code smells.
+
+## Tools used
+- Infusion
+- JDeodrant
+- PMD
+
 
