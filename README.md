@@ -1,4 +1,6 @@
 # Code Smell Detection
+Code smells are signs of subpar design and implementation decisions that have a negative impact on the standard of written source code. 
+
 
 ## Instructions to run the project
 - This project is written in **Python** programming language.
