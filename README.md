@@ -1,1 +1,3 @@
-## Code Smell Detection
+### Code Smell Detection
+
+## Instructions to run the project
