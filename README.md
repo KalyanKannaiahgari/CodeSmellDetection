@@ -5,7 +5,7 @@ Code smells are signs of subpar design and implementation decisions that have a 
 ## Instructions to run the project
 - This project is written in **Python** programming language.
 - This project should be executed on **PyCharm** IDE **ONLY**.
-- It includes a csv file named "codeSmellData.csv". This file is imported from Kaggle.
+- It includes a csv file named "codeSmellData.csv". This file includes datasets which is imported from Kaggle.
 
 ## Code Parameters
 1.	Repetitive Code Lines
