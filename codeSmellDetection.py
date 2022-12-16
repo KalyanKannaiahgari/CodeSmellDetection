@@ -2,6 +2,7 @@ from copy import copy
 from csv import DictWriter
 import os
 
+# Parameters are initialized to zero
 initialCodeSmellsStatistic = {
     "repetitiveCodeLines" : 0,
     "DeadCodesAfterReturn" : 0,
@@ -13,9 +14,11 @@ initialCodeSmellsStatistic = {
     "LongConditionalBlocks": 0,
     "LongParameterList": 0
 }
+
 functionNames = None
 codeSmellsStatistic = None
 
+# This function will read the source code from top to bottom.
 def describeCodeSmell(description, start, end, codeSmell):
     print(description, end = " ")
     if (start == end):
@@ -24,18 +27,22 @@ def describeCodeSmell(description, start, end, codeSmell):
         print("from line", start + 1, "to line", end + 1)
     codeSmellsStatistic[codeSmell] += 1
 
+#This function will eliminate all the unnecessary spaces in the source code. It is cleaning the dataset.
 def getLeadingSpaces(line):
     return len(line) - len(line.lstrip())
 
+#It is analyzing the index of the functions in the source code.
 def getFunctionName(line):
     functionName = line.split()[1]
     if ('(' in functionName):
         functionName = functionName[:functionName.index('(')]
     return functionName
 
+#This function will scan for the "return" statements in the source code.
 def hasReturnStatement(line):
     return "return" in line.split()
 
+#The functions will check for repeated code lines
 def checkRepetitiveCode(code):
     combinedMultipleLines = []
     for i in range(len(code) - 2):
