@@ -75,6 +75,7 @@ def checkRepetitiveCode(code):
             i = j
             j = i + 1
 
+#This function will check for unused code such as imports, variables, objects etc.
 def checkDeadcodeAfterReturn(code, i):
     numberOfLines = len(code)
     leadingSpaces = getLeadingSpaces(code[i])
@@ -85,6 +86,7 @@ def checkDeadcodeAfterReturn(code, i):
     if (i+1 != j):
         describeCodeSmell('Dead Code found after Return Statement', i + 1, j - 1, 'DeadCodesAfterReturn')
 
+#This function will scan for multiple return statements in the source code
 def checkFunctionHavingMultipleReturn(code, i):
     numberOfLines = len(code)
     leadingSpaces = getLeadingSpaces(code[i])
@@ -97,10 +99,12 @@ def checkFunctionHavingMultipleReturn(code, i):
     if (len(returnCounts) > 1):
         describeCodeSmell('Multiple return statements found at lines ' + str(returnCounts) + ' of function', i - 1, j - 1, 'MultipleReturnStatementsInFunction')
 
+#This function will check for Long blocks of code
 def checkLongStatements(code, i):
     if (len(code[i].lstrip().split()) > 20):
         describeCodeSmell('Long statement found', i, i, 'LongStatements')
 
+#This function will check for repeated function names in the source code
 def checkSameFunctionNames(functionNames, numberOfLines):
     functionNames = sorted(functionNames, key=lambda d: d['functionName'])
     i = 0
@@ -131,10 +135,12 @@ def checkLongBlocks(code, i, blockType):
     if (blockType == "CONDITIONAL" and (j - i) > 10):
         describeCodeSmell('Long Conditional Blocks found', i, j - 1, 'LongConditionalBlocks')
 
+#This function will check for long list of parameters initialized at a single block of code
 def checkLongParameterList(code, i):
     if (len(code[i].split(',')) > 4):
         describeCodeSmell('Long parameter list found', i, i, 'LongParameterList')
 
+#This function will check for block statements and the loops used in the source code.
 def checkBlocks(code, i):
     ifConditions = ["if(", "if "]
     otherConditions = ["else(", "else ", "elif(", "elif ", "case "]
@@ -154,6 +160,7 @@ def checkBlocks(code, i):
         blockType = "LOOPS"
     checkLongBlocks(code, i + 1, blockType)
 
+#After evaluating the source code, this function will detect based on the parameters listed above and come to conclusion.
 def findCodeSmells(fileName):
     file1 = open(fileName, 'r')
     code = file1.readlines()
